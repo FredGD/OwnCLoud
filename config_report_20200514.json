@@ -1,0 +1,2028 @@
+{
+    "basic": {
+        "license key": "",
+        "date": "Thu, 14 May 2020 09:31:44 +0000",
+        "ownCloud version": "9.1.6.2",
+        "ownCloud version string": "9.1.6",
+        "ownCloud edition": "",
+        "server OS": "Linux",
+        "server OS version": "Linux PMSA-CLOUD 4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017 x86_64",
+        "server SAPI": "apache2handler",
+        "webserver version": "Apache\/2.4.18 (Ubuntu)",
+        "hostname": "172.16.18.1",
+        "user count": 22,
+        "user directories": 22,
+        "logged-in user": "OCAdmin"
+    },
+    "integritychecker": {
+        "passing": true,
+        "enabled": true,
+        "result": []
+    },
+    "apps": [
+        {
+            "id": "files_trashbin",
+            "name": "Deleted files",
+            "description": "This application enables users to restore files that were deleted from the system. It displays a list of deleted files in the web interface, and has options to restore those deleted files back to their ownCloud file directories or remove them permanently from the system. Restoring a file also restores related file versions, if the versions application is enabled. When a file is deleted from a share, it can be restored in the same manner, though it is no longer shared. By default, these files remain in the trash bin for 30 days. To prevent a user from running out of disk space, the ownCloud Deleted files app will not utilize more than 50% of the currently available free quota for deleted files. If the deleted files exceed this limit, ownCloud deletes the oldest files until it gets below this limit. More information is available in the Deleted Files documentation.\n\n",
+            "licence": "AGPL",
+            "author": "Bjoern Schiessle",
+            "default_enable": "",
+            "version": "0.9.0",
+            "types": [
+                "filesystem"
+            ],
+            "namespace": "Files_Trashbin",
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "documentation": {
+                "user": "https:\/\/doc.owncloud.org\/server\/9.1\/go.php?to=user-trashbin"
+            },
+            "background-jobs": {
+                "job": "OCA\\Files_Trashbin\\BackgroundJob\\ExpireTrash"
+            },
+            "info": [],
+            "remote": [],
+            "public": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/files_trashbin\/img\/app.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "enabled": "yes",
+                "installed_version": "0.9.0",
+                "types": "filesystem"
+            }
+        },
+        {
+            "id": "federation",
+            "name": "Federation",
+            "description": "ownCloud Federation allows you to connect with other trusted ownClouds to exchange the user directory. For example this will be used to auto-complete external users for federated sharing.",
+            "licence": "AGPL",
+            "author": "Bjoern Schiessle",
+            "version": "0.1.0",
+            "namespace": "Federation",
+            "category": "other",
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "default_enable": "",
+            "types": [
+                "authentication"
+            ],
+            "background-jobs": {
+                "job": "OCA\\Federation\\SyncJob"
+            },
+            "info": [],
+            "remote": [],
+            "public": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/federation\/img\/app.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "autoAddServers": "1",
+                "enabled": "yes",
+                "installed_version": "0.1.0",
+                "types": "authentication"
+            }
+        },
+        {
+            "id": "systemtags",
+            "name": "Collaborative tags",
+            "description": "Collaborative tagging functionality which shares tags among users. Great for teams. (If you are a provider with a multi-tenancy installation, it is advised to deactivate this app as tags are shared.)",
+            "licence": "AGPL",
+            "author": "Vincent Petry",
+            "default_enable": "",
+            "version": "0.3.0",
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "namespace": "SystemTags",
+            "types": [
+                "logging"
+            ],
+            "info": [],
+            "remote": [],
+            "public": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "appconfig": {
+                "enabled": "yes",
+                "installed_version": "0.3.0",
+                "types": "logging"
+            }
+        },
+        {
+            "id": "files_external",
+            "name": "External storage support",
+            "description": "This application enables administrators to configure connections to external storage providers, such as FTP servers, S3 or SWIFT object stores, Google Drive, Dropbox, other ownCloud servers, WebDAV servers, and more. Administrators can choose which types of storage to enable and can mount these storage locations for a user, a group, or the entire system. Users will see a new folder appear in their root ownCloud directory, which they can access and use like any other ownCloud folder. External Storage also allows users to share files stored in these external locations. In these cases, the credentials for the owner of the file are used when the recipient requests the file from external storage, thereby ensuring that the recipient can access the shared file.\n\nExternal Storage can be configured using the GUI or at the command line. This second option provides the advanced user with more flexibility for configuring bulk external storage mounts and setting mount priorities. More information is available in the External Storage GUI documentation and the External Storage Configuration File documentation.",
+            "licence": "AGPL",
+            "author": "Robin Appelman, Michael Gapczynski, Vincent Petry",
+            "documentation": {
+                "admin": "https:\/\/doc.owncloud.org\/server\/9.1\/go.php?to=admin-external-storage"
+            },
+            "rememberlogin": "false",
+            "version": "0.6.0",
+            "types": [
+                "filesystem"
+            ],
+            "ocsid": "166048",
+            "namespace": "Files_External",
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "info": [],
+            "remote": [],
+            "public": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/files_external\/img\/app.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "allow_user_mounting": "no",
+                "enabled": "yes",
+                "installed_version": "0.6.0",
+                "ocsid": "166048",
+                "types": "filesystem",
+                "user_mounting_backends": "ftp,dav,owncloud,sftp,amazons3,dropbox,googledrive,swift,smb,\\OC\\Files\\Storage\\SFTP_Key,\\OC\\Files\\Storage\\SMB_OC"
+            }
+        },
+        {
+            "id": "files_versions",
+            "name": "Versions",
+            "licence": "AGPL",
+            "author": "Frank Karlitschek, Bjoern Schiessle",
+            "description": "This application enables ownCloud to automatically maintain older versions of files that are changed. When enabled, a hidden versions folder is provisioned in every user\u2019s directory and is used to store old file versions. A user can revert to an older version through the web interface at any time, with the replaced file becoming a version. ownCloud then automatically manages the versions folder to ensure the user doesn\u2019t run out of Quota because of versions. In addition to the expiry of versions, ownCloud\u2019s versions app makes certain never to use more than 50% of the user\u2019s currently available free space. If stored versions exceed this limit, ownCloud will delete the oldest versions first until it meets this limit. More information is available in the Versions documentation.\n\n",
+            "version": "1.3.0",
+            "types": [
+                "filesystem"
+            ],
+            "namespace": "Files_Versions",
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "documentation": {
+                "user": "https:\/\/doc.owncloud.org\/server\/9.1\/go.php?to=user-versions"
+            },
+            "default_enable": "",
+            "background-jobs": {
+                "job": "OCA\\Files_Versions\\BackgroundJob\\ExpireVersions"
+            },
+            "info": [],
+            "remote": [],
+            "public": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/files_versions\/img\/app.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "enabled": "yes",
+                "installed_version": "1.3.0",
+                "types": "filesystem"
+            }
+        },
+        {
+            "id": "firstrunwizard",
+            "name": "First run wizard",
+            "description": "This application enables a pop-up window when a user first logs into ownCloud. This window welcomes new users to ownCloud, and contains links to the standard ownCloud desktop client, Android app, and the iOS app. The window also shows a link for accessing ownCloud via WebDAV. At any time, the first run wizard button can be opened again via the link on the personal page. The First run wizard can be customized to meet specific design goals, or to change links and messages. Create an appropriate theme following the Theming documentation, and changes to the look and feel of this Wizard are simple. More information is available in the First run wizard documentation, as well as the theming documentation.",
+            "licence": "AGPL",
+            "author": "Frank Karlitschek, Jan-Christoph Borchardt",
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.0",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "version": "1.1",
+            "shipped": "true",
+            "default_enable": "",
+            "ocsid": "166055",
+            "info": [],
+            "remote": [],
+            "public": [],
+            "types": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/firstrunwizard\/img\/app.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "enabled": "yes",
+                "installed_version": "1.1",
+                "ocsid": "166055",
+                "types": ""
+            }
+        },
+        {
+            "id": "external",
+            "name": "External Sites",
+            "description": "This application allows an admin to add a link in the ownCloud web interface Apps menu that points to an external website. By simply entering the URL and the name for the external site, icon appears. When this icon is clicked by a user, the external website appears in the ownCloud frame. For the user, this external site appears as if it is part of ownCloud but, in fact, this can be any external URL.\n\nNote that the External Site link must use the same type of encryption as provided by ownCloud. In other words, if ownCloud is hosted on HTTPS, the link in the external site must also be HTTPS. The same is also true for HTTP. More information is available in the External Sites documentation.",
+            "licence": "AGPL",
+            "author": "Frank Karlitschek",
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "shipped": "true",
+            "ocsid": "166046",
+            "info": [],
+            "remote": [],
+            "public": [],
+            "types": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": false,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/external\/img\/external.svg",
+            "previewAsIcon": true,
+            "version": ""
+        },
+        {
+            "id": "activity",
+            "name": "Activity",
+            "description": "This application enables users to view actions related to their files in ownCloud. Once enabled, users will see a new icon \u201cActivity\u201d in their apps menu. When clicked, a new page appears for users to track the activity related to files \u2013 from new files, to deleted files, move, rename, updates and shared activity. The user can configure their individual activity settings in their personal menu. This sets the type of activity to record, as well as whether to the user sees their own activities, whether these are only available online, and whether they get an email digest on a regular basis. More information is available in the Activity documentation.",
+            "licence": "AGPL",
+            "author": "Frank Karlitschek, Joas Schilling",
+            "shipped": "true",
+            "version": "2.3.2",
+            "default_enable": "",
+            "types": [
+                "filesystem"
+            ],
+            "documentation": {
+                "admin": "https:\/\/doc.owncloud.org\/server\/9.1\/admin_manual\/configuration_server\/activity_configuration.html"
+            },
+            "website": "https:\/\/github.com\/owncloud\/activity\/",
+            "bugs": "https:\/\/github.com\/owncloud\/activity\/issues",
+            "repository": {
+                "@attributes": {
+                    "type": "git"
+                },
+                "@value": "https:\/\/github.com\/owncloud\/activity.git"
+            },
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "background-jobs": [
+                "OCA\\Activity\\BackgroundJob\\EmailNotification",
+                "OCA\\Activity\\BackgroundJob\\ExpireActivities"
+            ],
+            "info": [],
+            "remote": [],
+            "public": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/activity\/img\/activity.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "enabled": "yes",
+                "installed_version": "2.3.2",
+                "types": "filesystem"
+            }
+        },
+        {
+            "id": "files_sharing",
+            "name": "Share Files",
+            "description": "This application enables users to share files within ownCloud. If enabled, the admin can choose which groups can share files. The applicable users can then share files and folders with other users and groups within ownCloud. In addition, if the admin enables the share link feature, an external link can be used to share files with other users outside of ownCloud. Admins can also enforce passwords, expirations dates, and enable server to server sharing via share links, as well as sharing from mobile devices. Turning the feature off removes shared files and folders on the server for all share recipients, and also on the sync clients and mobile apps. More information is available in the ownCloud Documentation.\n\n",
+            "licence": "AGPL",
+            "author": "Michael Gapczynski, Bjoern Schiessle",
+            "default_enable": "",
+            "version": "0.10.0",
+            "types": [
+                "filesystem"
+            ],
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "public": {
+                "files": "public.php"
+            },
+            "namespace": "Files_Sharing",
+            "background-jobs": [
+                "OCA\\Files_Sharing\\DeleteOrphanedSharesJob",
+                "OCA\\Files_Sharing\\ExpireSharesJob"
+            ],
+            "info": [],
+            "remote": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/files_sharing\/img\/app.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "enabled": "yes",
+                "installed_version": "0.10.0",
+                "types": "filesystem"
+            }
+        },
+        {
+            "id": "files_texteditor",
+            "name": "Text Editor",
+            "description": "This application enables ownCloud users to open, save and edit text files in the web browser. If enabled, an entry in the New button at the top of the web browser the Text file entry appears. When clicked, a new text file opens in the browser and the file can be saved into the current ownCloud directory. Further, when a text file is clicked in the web browser, it will be opened and editable. If the privileges allow, a user can also edit shared files and save these changes back into the web browser. More information is available in the Text Editor documentation.",
+            "licence": "AGPL",
+            "author": "Tom Needham, Bj\u00f6rn Schie\u00dfle",
+            "version": "2.1",
+            "shipped": "true",
+            "default_enable": "",
+            "ocsid": "166051",
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "info": [],
+            "remote": [],
+            "public": [],
+            "types": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/files_texteditor\/img\/app.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "enabled": "yes",
+                "installed_version": "2.1",
+                "ocsid": "166051",
+                "types": ""
+            }
+        },
+        {
+            "id": "user_ldap",
+            "name": "LDAP user and group backend",
+            "description": "This application enables administrators to connect ownCloud to an LDAP-based user directory for authentication and provisioning users, groups and user attributes. Admins can configure this application to connect to one or more LDAP directories or Active Directories via an LDAP interface. Attributes such as user quota, email, avatar pictures, group memberships and more can be pulled into ownCloud from a directory with the appropriate queries and filters.\n\nA user logs into ownCloud with their LDAP or AD credentials, and is granted access based on an authentication request handled by the LDAP or AD server. ownCloud does not store LDAP or AD passwords, rather these credentials are used to authenticate a user and then ownCloud uses a session for the user ID. More information is available in the LDAP User and Group Backend documentation.\n\n",
+            "licence": "AGPL",
+            "author": "Dominik Schmidt and Arthur Schiwon",
+            "version": "0.9.0",
+            "types": [
+                "authentication"
+            ],
+            "documentation": {
+                "admin": "https:\/\/doc.owncloud.org\/server\/9.1\/go.php?to=admin-ldap"
+            },
+            "dependencies": {
+                "lib": "ldap",
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "namespace": "User_LDAP",
+            "background-jobs": [
+                "OCA\\User_LDAP\\Jobs\\UpdateGroups",
+                "OCA\\User_LDAP\\Jobs\\CleanUp"
+            ],
+            "info": [],
+            "remote": [],
+            "public": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/user_ldap\/img\/app.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "cleanUpJobOffset": "0",
+                "enabled": "yes",
+                "has_memberof_filter_support": "1",
+                "home_folder_naming_rule": "",
+                "installed_version": "0.9.0",
+                "last_jpegPhoto_lookup": "0",
+                "ldap_agent_password": "***REMOVED SENSITIVE VALUE***",
+                "ldap_attributes_for_group_search": "",
+                "ldap_attributes_for_user_search": "",
+                "ldap_backup_host": "",
+                "ldap_backup_port": "",
+                "ldap_base": "OU=PM,DC=pmsa,DC=ch",
+                "ldap_base_groups": "OU=PM,DC=pmsa,DC=ch",
+                "ldap_base_users": "OU=PM,DC=pmsa,DC=ch",
+                "ldap_cache_ttl": "600",
+                "ldap_configuration_active": "1",
+                "ldap_display_name": "displayname",
+                "ldap_dn": "CN=zzLDAPS,OU=Service Account,OU=PM,DC=pmsa,DC=ch",
+                "ldap_dynamic_group_member_url": "",
+                "ldap_email_attr": "mail",
+                "ldap_experienced_admin": "0",
+                "ldap_expert_username_attr": "",
+                "ldap_expert_uuid_group_attr": "",
+                "ldap_expert_uuid_user_attr": "",
+                "ldap_group_display_name": "cn",
+                "ldap_group_filter": "(&(|(objectclass=group))(|(cn=grp_owncloud_mo)(cn=grp_owncloud)))",
+                "ldap_group_filter_mode": "0",
+                "ldap_group_member_assoc_attribute": "member",
+                "ldap_groupfilter_groups": "grp_owncloud_mo\ngrp_owncloud",
+                "ldap_groupfilter_objectclass": "group",
+                "ldap_host": "ldaps:\/\/pmsa-ad1.pmsa.ch",
+                "ldap_login_filter": "(&(&(|(objectclass=user))(|(|(memberof=CN=grp_owncloud_mo,OU=Groups,OU=PM,DC=pmsa,DC=ch)(primaryGroupID=3660))))(|(samaccountname=%uid)(|(sAMAccountName=%uid))))",
+                "ldap_login_filter_mode": "0",
+                "ldap_loginfilter_attributes": "sAMAccountName",
+                "ldap_loginfilter_email": "0",
+                "ldap_loginfilter_username": "1",
+                "ldap_nested_groups": "0",
+                "ldap_override_main_server": "",
+                "ldap_paging_size": "500",
+                "ldap_port": "636",
+                "ldap_quota_attr": "",
+                "ldap_quota_def": "",
+                "ldap_tls": "",
+                "ldap_turn_off_cert_check": "0",
+                "ldap_user_display_name_2": "",
+                "ldap_user_filter_mode": "0",
+                "ldap_userfilter_groups": "grp_owncloud_mo\ngrp_owncloud",
+                "ldap_userfilter_objectclass": "user",
+                "ldap_userlist_filter": "(&(|(objectclass=user))(|(|(memberof=CN=grp_owncloud_mo,OU=Groups,OU=PM,DC=pmsa,DC=ch)(primaryGroupID=3660))(|(memberof=CN=grp_owncloud,OU=Groups,OU=PM,DC=pmsa,DC=ch)(primaryGroupID=3622))))",
+                "types": "authentication",
+                "use_memberof_to_detect_membership": "1"
+            }
+        },
+        {
+            "id": "user_external",
+            "name": "External user support",
+            "description": "Use external user authentication methods",
+            "licence": "AGPL",
+            "author": "Robin Appelman",
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "version": "0.4",
+            "shipped": "true",
+            "types": [
+                "authentication",
+                "prelogin"
+            ],
+            "ocsid": "166060",
+            "info": [],
+            "remote": [],
+            "public": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": false,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/user_external\/img\/app.svg",
+            "previewAsIcon": true
+        },
+        {
+            "id": "files_pdfviewer",
+            "name": "PDF Viewer",
+            "description": "This application integrates the PDF.js library into ownCloud. Using this application users can view their PDF files online without the need to download the file.\n\nWhen this application is enabled publicly shared PDF documents will also get shown in the PDF Viewer instead of only showing a single static snapshot of the document. The PDF viewer requires a modern browser and will not work with Microsoft\u00ae Internet Explorer\u00ae versions below 9.\n\nPDF.js is a JavaScript library developed by Mozilla, you can learn more about the PDF.js project at https:\/\/mozilla.github.io\/pdf.js\/",
+            "licence": "AGPL",
+            "author": "Thomas M\u00fcller, Lukas Reschke",
+            "version": "0.8.1",
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "shipped": "true",
+            "default_enable": "",
+            "ocsid": "166049",
+            "info": [],
+            "remote": [],
+            "public": [],
+            "types": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/files_pdfviewer\/img\/app.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "enabled": "yes",
+                "installed_version": "0.8.1",
+                "ocsid": "166049",
+                "types": ""
+            }
+        },
+        {
+            "id": "comments",
+            "name": "Comments",
+            "description": "Files app plugin to add comments to files",
+            "licence": "AGPL",
+            "author": "Arthur Schiwon, Vincent Petry",
+            "default_enable": "",
+            "version": "0.3.0",
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "types": [
+                "logging"
+            ],
+            "info": [],
+            "remote": [],
+            "public": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "appconfig": {
+                "enabled": "yes",
+                "installed_version": "0.3.0",
+                "types": "logging"
+            }
+        },
+        {
+            "id": "files_antivirus",
+            "name": "Antivirus App for files",
+            "description": "This application inspects files that are uploaded to ownCloud for viruses before they are written to the ownCloud storage. If a file is identified as a virus, it is either logged or not uploaded to the server. The application relies on the underlying ClamAV virus scanning engine, which the admin points ownCloud to when configuring the application. For this app to be effective, the ClamAV virus definitions should be kept up to date. Also note that enabling this app will impact system performance as additional processing is required for every upload. More information is available in the Antivirus documentation.",
+            "bugs": "https:\/\/github.com\/owncloud\/files_antivirus\/issues",
+            "repository": {
+                "@attributes": {
+                    "type": "git"
+                },
+                "@value": "http:\/\/github.com\/owncloud\/files_antivirus.git"
+            },
+            "licence": "AGPL",
+            "author": "Manuel Delgado, Bart Visscher, thinksilicon.de, Victor Dubiniuk",
+            "version": "0.9.0.0",
+            "types": [
+                "filesystem"
+            ],
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "8.2",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "ocsid": "157439",
+            "info": [],
+            "remote": [],
+            "public": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": false,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/files_antivirus\/img\/app.svg",
+            "previewAsIcon": true
+        },
+        {
+            "id": "updatenotification",
+            "name": "Update notification",
+            "description": "Displays update notifications for ownCloud and provides the SSO for the updater.",
+            "licence": "AGPL",
+            "author": "Lukas Reschke",
+            "version": "0.2.1",
+            "namespace": "UpdateNotification",
+            "default_enable": "",
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "background-jobs": {
+                "job": "OCA\\UpdateNotification\\Notification\\BackgroundJob"
+            },
+            "info": [],
+            "remote": [],
+            "public": [],
+            "types": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "appconfig": {
+                "core": "9.1.8",
+                "enabled": "yes",
+                "installed_version": "0.2.1",
+                "types": ""
+            }
+        },
+        {
+            "id": "notifications",
+            "name": "Notifications",
+            "description": "An app that notifies the user about important events of other apps.",
+            "licence": "AGPL",
+            "author": "Joas Schilling",
+            "version": "0.3.0",
+            "types": [
+                "logging"
+            ],
+            "default_enable": "",
+            "website": "https:\/\/github.com\/owncloud\/notifications",
+            "bugs": "https:\/\/github.com\/owncloud\/notifications\/issues",
+            "repository": {
+                "@attributes": {
+                    "type": "git"
+                },
+                "@value": "https:\/\/github.com\/owncloud\/notifications.git"
+            },
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "info": [],
+            "remote": [],
+            "public": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/notifications\/img\/notifications.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "enabled": "yes",
+                "installed_version": "0.3.0",
+                "types": "logging"
+            }
+        },
+        {
+            "id": "files_videoplayer",
+            "name": "Video player",
+            "description": "A responsive video player using a skinned version of Video.js\n\nBased on this app: https:\/\/apps.owncloud.com\/content\/show.php\/Video+Js?content=159670\n\nVideo.js: http:\/\/videojs.com\/\n\nSkin: https:\/\/github.com\/cabin\/videojs-sublime-skin",
+            "version": "0.9.8",
+            "licence": "MIT",
+            "author": "Bj\u00f6rn Korella",
+            "default_enable": "",
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "8.2",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "info": [],
+            "remote": [],
+            "public": [],
+            "types": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/files_videoplayer\/img\/app.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "enabled": "yes",
+                "installed_version": "0.9.8",
+                "types": ""
+            }
+        },
+        {
+            "id": "encryption",
+            "description": "In order to use this encryption module you need to enable server-side encryption in the admin settings. Once enabled this module will encrypt all your files transparently. The encryption is based on AES 256 keys. The module won't touch existing files, only new files will be encrypted after server-side encryption was enabled. It is also not possible to disable the encryption again and switch back to a unencrypted system. Please read the documentation to know all implications before you decide to enable server-side encryption.",
+            "name": "Default encryption module",
+            "licence": "AGPL",
+            "author": "Bjoern Schiessle, Clark Tomlinson",
+            "documentation": {
+                "user": "https:\/\/doc.owncloud.org\/server\/9.1\/go.php?to=user-encryption",
+                "admin": "https:\/\/doc.owncloud.org\/server\/9.1\/go.php?to=admin-encryption"
+            },
+            "rememberlogin": "false",
+            "version": "1.3.0",
+            "types": [
+                "filesystem"
+            ],
+            "dependencies": {
+                "lib": "openssl",
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "info": [],
+            "remote": [],
+            "public": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/encryption\/img\/app.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "enabled": "yes",
+                "encryptHomeStorage": "1",
+                "installed_version": "1.3.0",
+                "masterKeyId": "master_12a27d9d",
+                "publicShareKeyId": "pubShare_12a27d9d",
+                "recoveryAdminEnabled": "1",
+                "recoveryKeyId": "recoveryKey_12a27d9d",
+                "types": "filesystem"
+            }
+        },
+        {
+            "id": "templateeditor",
+            "name": "Mail Template Editor",
+            "description": "This application enables ownCloud to send custom emails to users. By default, ownCloud can send password reset emails, shared file and share link emails, activity stream notifications and more. By configuring an email server, admins can enable these emails to be sent. By providing an email address on their Personal page, users can receive these emails. By default, all of these emails will contain ownCloud email templates. The template editor allows admins to change email templates for emails sent by the system. While it is possible to manually change email templates within ownCloud, this app makes it far simpler by updating this via the ownCloud admin panel. More information is available in the Mail Template Editor documentation.",
+            "licence": "AGPL",
+            "author": "J\u00f6rn Dreyer",
+            "version": "0.1",
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "shipped": "true",
+            "default_enable": "",
+            "info": [],
+            "remote": [],
+            "public": [],
+            "types": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/templateeditor\/img\/app.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "enabled": "yes",
+                "installed_version": "0.1",
+                "types": ""
+            }
+        },
+        {
+            "id": "gallery",
+            "name": "Gallery",
+            "description": "Media gallery for ownCloud with the following features:\n\n- Support for large selection of media types (depending on ownCloud setup)\n\n- Large, zoomable previews\n\n- Sort images by name or date\n\n- Per album description and copyright statement\n\n- A la carte features\n\n- Image download straight from the slideshow or the gallery\n\n- Seamlessly jump between the gallery and the files view\n\n- Ignore folders containing a \".nomedia\" file\n\n- Native SVG support\n\n- Mobile support\n\nProvides a dedicated view of all images in a grid, adds image viewing capabilities to the files app and adds a gallery view to public links. Compatible with Firefox, Chrome and Internet Explorer 9+",
+            "licence": "AGPL",
+            "author": "Olivier Paroz, Robin Appelman",
+            "version": "15.0.0",
+            "namespace": "Gallery",
+            "category": "Multimedia",
+            "dependencies": {
+                "php": {
+                    "@attributes": {
+                        "min-version": "5.4",
+                        "max-version": "7"
+                    }
+                },
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.0",
+                        "max-version": "9.1.99"
+                    }
+                }
+            },
+            "default_enable": "",
+            "shipped": "true",
+            "info": [],
+            "remote": [],
+            "public": [],
+            "types": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/gallery\/img\/app.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "enabled": "yes",
+                "installed_version": "15.0.0",
+                "types": ""
+            }
+        },
+        {
+            "id": "configreport",
+            "name": "Admin Config Report",
+            "description": "Generate a Config Report",
+            "licence": "AGPL",
+            "author": "owncloud.org",
+            "version": "0.1.1",
+            "namespace": "ConfigReport",
+            "default_enable": [
+                "",
+                ""
+            ],
+            "types": [
+                "filesystem"
+            ],
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "10.0"
+                    }
+                }
+            },
+            "shipped": "true",
+            "info": [],
+            "remote": [],
+            "public": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "appconfig": {
+                "enabled": "yes",
+                "installed_version": "0.1.1",
+                "types": "filesystem"
+            }
+        },
+        {
+            "id": "provisioning_api",
+            "name": "Provisioning API",
+            "description": "This application enables a set of APIs that external systems can use to create, edit, delete and query user attributes, query, set and remove groups, set quota and query total storage used in ownCloud. Group admin users can also query ownCloud and perform the same functions as an admin for groups they manage. The API also enables an admin to query for active ownCloud applications, application info, and to enable or disable an app remotely. Once the app is enabled, http requests can be used via a Basic Auth header to perform any of the functions listed above. More information is available in the Provisioning API documentation, including example calls and server responses.",
+            "licence": "AGPL",
+            "author": "Tom Needham",
+            "default_enable": "",
+            "documentation": {
+                "admin": "https:\/\/doc.owncloud.org\/server\/9.1\/go.php?to=admin-provisioning-api"
+            },
+            "version": "0.5.0",
+            "namespace": "Provisioning_API",
+            "types": [
+                "prevent_group_restriction"
+            ],
+            "dependencies": {
+                "owncloud": {
+                    "@attributes": {
+                        "min-version": "9.1",
+                        "max-version": "9.1"
+                    }
+                }
+            },
+            "info": [],
+            "remote": [],
+            "public": [],
+            "repair-steps": {
+                "install": [],
+                "pre-migration": [],
+                "post-migration": [],
+                "live-migration": [],
+                "uninstall": []
+            },
+            "background-jobs": [],
+            "two-factor-providers": [],
+            "groups": null,
+            "active": true,
+            "internal": true,
+            "level": 200,
+            "removable": false,
+            "update": null,
+            "preview": "\/apps\/provisioning_api\/img\/app.svg",
+            "previewAsIcon": true,
+            "appconfig": {
+                "enabled": "yes",
+                "installed_version": "0.5.0",
+                "types": "prevent_group_restriction"
+            }
+        }
+    ],
+    "config": {
+        "instanceid": "oc0jb2tqzinl",
+        "passwordsalt": "***REMOVED SENSITIVE VALUE***",
+        "secret": "***REMOVED SENSITIVE VALUE***",
+        "trusted_domains": [
+            "192.168.10.248",
+            "cloud.pmsa.ch"
+        ],
+        "datadirectory": "\/mnt\/ocdata",
+        "overwrite.cli.url": "http:\/\/192.168.10.248",
+        "dbtype": "mysql",
+        "version": "9.1.6.2",
+        "dbname": "owncloud",
+        "dbhost": "localhost",
+        "dbtableprefix": "oc_",
+        "dbuser": "***REMOVED SENSITIVE VALUE***",
+        "dbpassword": "***REMOVED SENSITIVE VALUE***",
+        "logtimezone": "UTC",
+        "installed": true,
+        "theme": "pmsa",
+        "memcache.local": "\\OC\\Memcache\\APCu",
+        "memcache.locking": "\\OC\\Memcache\\Redis",
+        "redis": {
+            "host": "localhost",
+            "port": 6379
+        },
+        "ldapIgnoreNamingRules": false,
+        "loglevel": 2,
+        "maintenance": false,
+        "mail_from_address": "support",
+        "mail_smtpmode": "php",
+        "mail_domain": "inginia.ch"
+    },
+    "phpinfo": {
+        "apache2handler": {
+            "Apache Version": "Apache\/2.4.18 (Ubuntu)",
+            "Apache API Version": "20120211",
+            "Server Administrator": "[no address given]",
+            "Hostname:Port": "127.0.1.1:443",
+            "User\/Group": "www-data(33)\/33",
+            "Max Requests": "Per Child: 0 - Keep Alive: on - Max Per Connection: 100",
+            "Timeouts": "Connection: 300 - Keep-Alive: 5",
+            "Virtual Server": "Yes",
+            "Server Root": "\/etc\/apache2",
+            "Loaded Modules": "core mod_so mod_watchdog http_core mod_log_config mod_logio mod_version mod_unixd mod_access_compat mod_alias mod_auth_basic mod_authn_core mod_authn_file mod_authz_core mod_authz_host mod_authz_user mod_autoindex mod_deflate mod_dir mod_env mod_filter mod_headers mod_mime prefork mod_negotiation mod_php7 mod_rewrite mod_setenvif mod_socache_shmcb mod_ssl mod_status",
+            "engine": "1",
+            "last_modified": "0",
+            "xbithack": "0"
+        },
+        "Apache Environment": {
+            "HTTP_AUTHORIZATION": "no value",
+            "HOME": "\/var\/www\/owncloud",
+            "HTTP_HOME": "\/var\/www\/owncloud",
+            "modHeadersAvailable": "true",
+            "htaccessWorking": "true",
+            "HTTPS": "on",
+            "HTTP_HOST": "172.16.18.1",
+            "HTTP_UPGRADE_INSECURE_REQUESTS": "1",
+            "HTTP_USER_AGENT": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/81.0.4044.138 Safari\/537.36",
+            "HTTP_ACCEPT": "text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.9",
+            "HTTP_SEC_FETCH_SITE": "same-origin",
+            "HTTP_SEC_FETCH_MODE": "navigate",
+            "HTTP_SEC_FETCH_USER": "?1",
+            "HTTP_SEC_FETCH_DEST": "document",
+            "HTTP_ACCEPT_ENCODING": "gzip, deflate, br",
+            "HTTP_ACCEPT_LANGUAGE": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
+            "HTTP_X_FORWARDED_PROTO": "https",
+            "HTTP_X_FORWARDED_FOR": "5.187.57.104",
+            "HTTP_X_FORWARDED_HOST": "cloud.pmsa.ch",
+            "HTTP_X_FORWARDED_SERVER": "cloud.pmsa.ch",
+            "HTTP_CONNECTION": "Keep-Alive",
+            "SERVER_SIGNATURE": "&lt;address&gt;Apache\/2.4.18 (Ubuntu) Server at 172.16.18.1 Port 443&lt;\/address&gt;",
+            "SERVER_SOFTWARE": "Apache\/2.4.18 (Ubuntu)",
+            "SERVER_NAME": "172.16.18.1",
+            "SERVER_ADDR": "172.16.18.1",
+            "SERVER_PORT": "443",
+            "REMOTE_ADDR": "172.16.18.254",
+            "DOCUMENT_ROOT": "\/var\/www\/owncloud\/",
+            "REQUEST_SCHEME": "https",
+            "CONTEXT_PREFIX": "no value",
+            "CONTEXT_DOCUMENT_ROOT": "\/var\/www\/owncloud\/",
+            "SERVER_ADMIN": "[no address given]",
+            "SCRIPT_FILENAME": "\/var\/www\/owncloud\/index.php",
+            "REMOTE_PORT": "45725",
+            "GATEWAY_INTERFACE": "CGI\/1.1",
+            "SERVER_PROTOCOL": "HTTP\/1.1",
+            "REQUEST_METHOD": "GET",
+            "QUERY_STRING": "no value",
+            "REQUEST_URI": "\/index.php\/apps\/configreport\/report",
+            "SCRIPT_NAME": "\/index.php",
+            "PATH_INFO": "\/apps\/configreport\/report",
+            "PATH_TRANSLATED": "\/var\/www\/owncloud\/apps\/configreport\/report"
+        },
+        "HTTP Headers Information": {
+            "HTTP Request": "GET \/index.php\/apps\/configreport\/report HTTP\/1.1",
+            "Host": "172.16.18.1",
+            "Upgrade-Insecure-Requests": "1",
+            "User-Agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/81.0.4044.138 Safari\/537.36",
+            "Accept": "text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.9",
+            "Sec-Fetch-Site": "same-origin",
+            "Sec-Fetch-Mode": "navigate",
+            "Sec-Fetch-User": "?1",
+            "Sec-Fetch-Dest": "document",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
+            "X-Forwarded-Proto": "https",
+            "X-Forwarded-For": "5.187.57.104",
+            "X-Forwarded-Host": "cloud.pmsa.ch",
+            "X-Forwarded-Server": "cloud.pmsa.ch",
+            "Connection": "Keep-Alive",
+            "Expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+            "Cache-Control": "no-store, no-cache, must-revalidate",
+            "Pragma": "no-cache",
+            "Content-Security-Policy": "default-src self ; script-src self unsafe-eval ; style-src self unsafe-inline ; frame-src *; img-src * data: blob:; font-src self data:; media-src *; connect-src *"
+        },
+        "apcu": {
+            "Version": "5.1.3",
+            "APCu Debugging": "Disabled",
+            "MMAP Support": "Enabled",
+            "MMAP File Mask": "no value",
+            "Serialization Support": "php",
+            "Build Date": "Apr 5 2016 02:16:47",
+            "apc.coredump_unmap": "Off",
+            "apc.enable_cli": "Off",
+            "apc.enabled": "On",
+            "apc.entries_hint": "4096",
+            "apc.gc_ttl": "3600",
+            "apc.mmap_file_mask": "no value",
+            "apc.preload_path": "no value",
+            "apc.serializer": "php",
+            "apc.shm_segments": "1",
+            "apc.shm_size": "32M",
+            "apc.slam_defense": "On",
+            "apc.smart": "0",
+            "apc.ttl": "0",
+            "apc.use_request_time": "On",
+            "apc.writable": "\/tmp"
+        },
+        "calendar": {
+            "Calendar support": "enabled"
+        },
+        "Core": {
+            "PHP Version": "7.0.22-0ubuntu0.16.04.1",
+            "allow_url_fopen": "On",
+            "allow_url_include": "Off",
+            "arg_separator.input": "&amp;",
+            "arg_separator.output": "&amp;",
+            "auto_append_file": "no value",
+            "auto_globals_jit": "On",
+            "auto_prepend_file": "no value",
+            "browscap": "no value",
+            "default_charset": "UTF-8",
+            "default_mimetype": "text\/html",
+            "disable_classes": "no value",
+            "disable_functions": "pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wifcontinued,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,",
+            "display_errors": "Off",
+            "display_startup_errors": "Off",
+            "doc_root": "no value",
+            "docref_ext": "no value",
+            "docref_root": "no value",
+            "enable_dl": "Off",
+            "enable_post_data_reading": "On",
+            "error_append_string": "no value",
+            "error_log": "no value",
+            "error_prepend_string": "no value",
+            "error_reporting": [
+                "32767",
+                "22527"
+            ],
+            "exit_on_timeout": "Off",
+            "expose_php": "Off",
+            "extension_dir": "\/usr\/lib\/php\/20151012",
+            "file_uploads": "On",
+            "highlight.comment": "#FF8000",
+            "highlight.default": "#0000BB",
+            "highlight.html": "#000000",
+            "highlight.keyword": "#007700",
+            "highlight.string": "#DD0000",
+            "html_errors": "On",
+            "ignore_repeated_errors": "Off",
+            "ignore_repeated_source": "Off",
+            "ignore_user_abort": "Off",
+            "implicit_flush": "Off",
+            "input_encoding": "no value",
+            "internal_encoding": "no value",
+            "log_errors": "On",
+            "log_errors_max_len": "1024",
+            "mail.add_x_header": "On",
+            "mail.force_extra_parameters": "no value",
+            "mail.log": "no value",
+            "max_execution_time": [
+                "3600",
+                "30"
+            ],
+            "max_file_uploads": "20",
+            "max_input_nesting_level": "64",
+            "max_input_time": "60",
+            "max_input_vars": "1000",
+            "memory_limit": [
+                "512M",
+                "128M"
+            ],
+            "open_basedir": "no value",
+            "output_buffering": [
+                "0",
+                "4096"
+            ],
+            "output_encoding": "no value",
+            "output_handler": "no value",
+            "post_max_size": [
+                "513M",
+                "20M"
+            ],
+            "precision": "14",
+            "realpath_cache_size": "4096K",
+            "realpath_cache_ttl": "120",
+            "register_argc_argv": "Off",
+            "report_memleaks": "On",
+            "report_zend_debug": "On",
+            "request_order": "GP",
+            "sendmail_from": "no value",
+            "sendmail_path": "\/usr\/sbin\/sendmail -t -i ",
+            "serialize_precision": "17",
+            "short_open_tag": "Off",
+            "SMTP": "localhost",
+            "smtp_port": "25",
+            "sql.safe_mode": "Off",
+            "sys_temp_dir": "no value",
+            "track_errors": "Off",
+            "unserialize_callback_func": "no value",
+            "upload_max_filesize": [
+                "513M",
+                "20M"
+            ],
+            "upload_tmp_dir": "no value",
+            "user_dir": "no value",
+            "user_ini.cache_ttl": "300",
+            "user_ini.filename": ".user.ini",
+            "variables_order": "GPCS",
+            "xmlrpc_error_number": "0",
+            "xmlrpc_errors": "Off",
+            "zend.assertions": "-1",
+            "zend.detect_unicode": "On",
+            "zend.enable_gc": "On",
+            "zend.multibyte": "Off",
+            "zend.script_encoding": "no value"
+        },
+        "ctype": {
+            "ctype functions": "enabled"
+        },
+        "curl": {
+            "cURL support": "enabled",
+            "cURL Information": "7.47.0",
+            "Age": "3",
+            "Features": null,
+            "AsynchDNS": "Yes",
+            "CharConv": "No",
+            "Debug": "No",
+            "GSS-Negotiate": "No",
+            "IDN": "Yes",
+            "IPv6": "Yes",
+            "krb4": "No",
+            "Largefile": "Yes",
+            "libz": "Yes",
+            "NTLM": "Yes",
+            "NTLMWB": "Yes",
+            "SPNEGO": "Yes",
+            "SSL": "Yes",
+            "SSPI": "No",
+            "TLS-SRP": "Yes",
+            "HTTP2": "No",
+            "GSSAPI": "Yes",
+            "KERBEROS5": "Yes",
+            "UNIX_SOCKETS": "Yes",
+            "PSL": "No",
+            "Protocols": "dict, file, ftp, ftps, gopher, http, https, imap, imaps, ldap, ldaps, pop3, pop3s, rtmp, rtsp, smb, smbs, smtp, smtps, telnet, tftp",
+            "Host": "x86_64-pc-linux-gnu",
+            "SSL Version": "OpenSSL\/1.0.2g",
+            "ZLib Version": "1.2.8"
+        },
+        "date": {
+            "date\/time support": "enabled",
+            "&quot;Olson&quot; Timezone Database Version": "0.system",
+            "Timezone Database": "internal",
+            "Default timezone": "UTC",
+            "date.default_latitude": "31.7667",
+            "date.default_longitude": "35.2333",
+            "date.sunrise_zenith": "90.583333",
+            "date.sunset_zenith": "90.583333",
+            "date.timezone": "no value"
+        },
+        "dom": {
+            "DOM\/XML": "enabled",
+            "DOM\/XML API Version": "20031129",
+            "libxml Version": "2.9.3",
+            "HTML Support": "enabled",
+            "XPath Support": "enabled",
+            "XPointer Support": "enabled",
+            "Schema Support": "enabled",
+            "RelaxNG Support": "enabled"
+        },
+        "exif": {
+            "EXIF Support": "enabled",
+            "EXIF Version": "1.4 $Id: 8bdc0c8f27c2c9dd1f7551f1f9fe3ab57a06a4b1 $",
+            "Supported EXIF Version": "0220",
+            "Supported filetypes": "JPEG,TIFF",
+            "exif.decode_jis_intel": "JIS",
+            "exif.decode_jis_motorola": "JIS",
+            "exif.decode_unicode_intel": "UCS-2LE",
+            "exif.decode_unicode_motorola": "UCS-2BE",
+            "exif.encode_jis": "no value",
+            "exif.encode_unicode": "ISO-8859-15"
+        },
+        "fileinfo": {
+            "fileinfo support": "enabled",
+            "version": "1.0.5",
+            "libmagic": "522"
+        },
+        "filter": {
+            "Input Validation and Filtering": "enabled",
+            "Revision": "$Id: 28fcca4bfda9c9907588a64d245b49cb398249d8 $",
+            "filter.default": "unsafe_raw",
+            "filter.default_flags": "no value"
+        },
+        "ftp": {
+            "FTP support": "enabled",
+            "FTPS support": "enabled"
+        },
+        "gd": {
+            "GD Support": "enabled",
+            "GD headers Version": "2.1.1",
+            "GD library Version": "2.1.1",
+            "FreeType Support": "enabled",
+            "FreeType Linkage": "with freetype",
+            "FreeType Version": "2.6.1",
+            "GIF Read Support": "enabled",
+            "GIF Create Support": "enabled",
+            "JPEG Support": "enabled",
+            "libJPEG Version": "8",
+            "PNG Support": "enabled",
+            "libPNG Version": "1.2.54",
+            "WBMP Support": "enabled",
+            "XPM Support": "enabled",
+            "libXpm Version": "30411",
+            "XBM Support": "enabled",
+            "WebP Support": "enabled",
+            "gd.jpeg_ignore_warning": [
+                "1",
+                "0"
+            ]
+        },
+        "gettext": {
+            "GetText Support": "enabled"
+        },
+        "hash": {
+            "hash support": "enabled",
+            "Hashing Engines": "md2 md4 md5 sha1 sha224 sha256 sha384 sha512 ripemd128 ripemd160 ripemd256 ripemd320 whirlpool tiger128,3 tiger160,3 tiger192,3 tiger128,4 tiger160,4 tiger192,4 snefru snefru256 gost gost-crypto adler32 crc32 crc32b fnv132 fnv1a32 fnv164 fnv1a64 joaat haval128,3 haval160,3 haval192,3 haval224,3 haval256,3 haval128,4 haval160,4 haval192,4 haval224,4 haval256,4 haval128,5 haval160,5 haval192,5 haval224,5 haval256,5",
+            "MHASH support": "Enabled",
+            "MHASH API Version": "Emulated Support"
+        },
+        "iconv": {
+            "iconv support": "enabled",
+            "iconv implementation": "glibc",
+            "iconv library version": "2.23",
+            "iconv.input_encoding": "no value",
+            "iconv.internal_encoding": "no value",
+            "iconv.output_encoding": "no value"
+        },
+        "igbinary": {
+            "igbinary support": "enabled",
+            "igbinary version": "1.2.2-dev",
+            "igbinary APC serializer ABI": "no",
+            "igbinary session support": "no",
+            "igbinary.compact_strings": "On"
+        },
+        "json": {
+            "json support": "enabled",
+            "json version": "1.4.0"
+        },
+        "ldap": {
+            "LDAP Support": "enabled",
+            "RCS Version": "$Id: cec20da3ccaa477662b8667bef021291fb5bf6f4 $",
+            "Total Links": "1\/unlimited",
+            "API Version": "3001",
+            "Vendor Name": "OpenLDAP",
+            "Vendor Version": "20442",
+            "SASL Support": "Enabled",
+            "ldap.max_links": "Unlimited"
+        },
+        "libxml": {
+            "libXML support": "active",
+            "libXML Compiled Version": "2.9.3",
+            "libXML Loaded Version": "20903",
+            "libXML streams": "enabled"
+        },
+        "mbstring": {
+            "Multibyte Support": "enabled",
+            "Multibyte string engine": "libmbfl",
+            "HTTP input encoding translation": "disabled",
+            "libmbfl version": "1.3.2",
+            "oniguruma version": "5.9.6",
+            "Multibyte (japanese) regex support": "enabled",
+            "Multibyte regex (oniguruma) backtrack check": "On",
+            "Multibyte regex (oniguruma) version": "5.9.6",
+            "mbstring.detect_order": "no value",
+            "mbstring.encoding_translation": "Off",
+            "mbstring.func_overload": "0",
+            "mbstring.http_input": "no value",
+            "mbstring.http_output": "no value",
+            "mbstring.http_output_conv_mimetypes": "^(text\/|application\/xhtml\\+xml)",
+            "mbstring.internal_encoding": "no value",
+            "mbstring.language": "neutral",
+            "mbstring.strict_detection": "Off",
+            "mbstring.substitute_character": "no value"
+        },
+        "mysqli": {
+            "Client API library version": "mysqlnd 5.0.12-dev - 20150407 - $Id: b5c5906d452ec590732a93b051f3827e02749b83 $",
+            "Active Persistent Links": "0",
+            "Inactive Persistent Links": "0",
+            "Active Links": "0",
+            "mysqli.allow_local_infile": "On",
+            "mysqli.allow_persistent": "On",
+            "mysqli.default_host": "no value",
+            "mysqli.default_port": "3306",
+            "mysqli.default_pw": "no value",
+            "mysqli.default_socket": "no value",
+            "mysqli.default_user": "no value",
+            "mysqli.max_links": "Unlimited",
+            "mysqli.max_persistent": "Unlimited",
+            "mysqli.reconnect": "Off",
+            "mysqli.rollback_on_cached_plink": "Off"
+        },
+        "mysqlnd": {
+            "Version": "mysqlnd 5.0.12-dev - 20150407 - $Id: b5c5906d452ec590732a93b051f3827e02749b83 $",
+            "Compression": "supported",
+            "core SSL": "supported",
+            "extended SSL": "supported",
+            "Command buffer size": "4096",
+            "Read buffer size": "32768",
+            "Read timeout": "31536000",
+            "Collecting statistics": "Yes",
+            "Collecting memory statistics": "No",
+            "Tracing": "n\/a",
+            "Loaded plugins": "mysqlnd,debug_trace,auth_plugin_mysql_native_password,auth_plugin_mysql_clear_password,auth_plugin_sha256_password",
+            "API Extensions": "mysqli,pdo_mysql",
+            "bytes_sent": "78828",
+            "bytes_received": "200659",
+            "packets_sent": "1000",
+            "packets_received": "4451",
+            "protocol_overhead_in": "17804",
+            "protocol_overhead_out": "4000",
+            "bytes_received_ok_packet": "0",
+            "bytes_received_eof_packet": "0",
+            "bytes_received_rset_header_packet": "2754",
+            "bytes_received_rset_field_meta_packet": "0",
+            "bytes_received_rset_row_packet": "13222",
+            "bytes_received_prepare_response_packet": "99384",
+            "bytes_received_change_user_packet": "82709",
+            "packets_sent_command": "490",
+            "packets_received_ok": "0",
+            "packets_received_eof": "0",
+            "packets_received_rset_header": "306",
+            "packets_received_rset_field_meta": "0",
+            "packets_received_rset_row": "481",
+            "packets_received_prepare_response": "1408",
+            "packets_received_change_user": "2236",
+            "result_set_queries": "306",
+            "non_result_set_queries": "105",
+            "no_index_used": "43",
+            "bad_index_used": "0",
+            "slow_queries": "0",
+            "buffered_sets": "306",
+            "unbuffered_sets": "0",
+            "ps_buffered_sets": "0",
+            "ps_unbuffered_sets": "0",
+            "flushed_normal_sets": "0",
+            "flushed_ps_sets": "0",
+            "ps_prepared_never_executed": "0",
+            "ps_prepared_once_executed": "0",
+            "rows_fetched_from_server_normal": "1930",
+            "rows_fetched_from_server_ps": "0",
+            "rows_buffered_from_client_normal": "1930",
+            "rows_buffered_from_client_ps": "0",
+            "rows_fetched_from_client_normal_buffered": "1930",
+            "rows_fetched_from_client_normal_unbuffered": "0",
+            "rows_fetched_from_client_ps_buffered": "0",
+            "rows_fetched_from_client_ps_unbuffered": "0",
+            "rows_fetched_from_client_ps_cursor": "0",
+            "rows_affected_normal": "75",
+            "rows_affected_ps": "0",
+            "rows_skipped_normal": "1930",
+            "rows_skipped_ps": "0",
+            "copy_on_write_saved": "0",
+            "copy_on_write_performed": "0",
+            "command_buffer_too_small": "0",
+            "connect_success": "10",
+            "connect_failure": "0",
+            "connection_reused": "0",
+            "reconnect": "0",
+            "pconnect_success": "0",
+            "active_connections": "18446744073709551608",
+            "active_persistent_connections": "0",
+            "explicit_close": "9",
+            "implicit_close": "0",
+            "disconnect_close": "0",
+            "in_middle_of_command_close": "0",
+            "explicit_free_result": "306",
+            "implicit_free_result": "0",
+            "explicit_stmt_close": "0",
+            "implicit_stmt_close": "0",
+            "mem_emalloc_count": "0",
+            "mem_emalloc_amount": "0",
+            "mem_ecalloc_count": "0",
+            "mem_ecalloc_amount": "0",
+            "mem_erealloc_count": "0",
+            "mem_erealloc_amount": "0",
+            "mem_efree_count": "0",
+            "mem_efree_amount": "0",
+            "mem_malloc_count": "0",
+            "mem_malloc_amount": "0",
+            "mem_calloc_count": "0",
+            "mem_calloc_amount": "0",
+            "mem_realloc_count": "0",
+            "mem_realloc_amount": "0",
+            "mem_free_count": "0",
+            "mem_free_amount": "0",
+            "mem_estrndup_count": "0",
+            "mem_strndup_count": "0",
+            "mem_estndup_count": "0",
+            "mem_strdup_count": "0",
+            "proto_text_fetched_null": "0",
+            "proto_text_fetched_bit": "0",
+            "proto_text_fetched_tinyint": "0",
+            "proto_text_fetched_short": "10",
+            "proto_text_fetched_int24": "0",
+            "proto_text_fetched_int": "82",
+            "proto_text_fetched_bigint": "39",
+            "proto_text_fetched_decimal": "0",
+            "proto_text_fetched_float": "0",
+            "proto_text_fetched_double": "0",
+            "proto_text_fetched_date": "0",
+            "proto_text_fetched_year": "0",
+            "proto_text_fetched_time": "0",
+            "proto_text_fetched_datetime": "0",
+            "proto_text_fetched_timestamp": "0",
+            "proto_text_fetched_string": "3713",
+            "proto_text_fetched_blob": "0",
+            "proto_text_fetched_enum": "1753",
+            "proto_text_fetched_set": "0",
+            "proto_text_fetched_geometry": "0",
+            "proto_text_fetched_other": "0",
+            "proto_binary_fetched_null": "0",
+            "proto_binary_fetched_bit": "0",
+            "proto_binary_fetched_tinyint": "0",
+            "proto_binary_fetched_short": "0",
+            "proto_binary_fetched_int24": "0",
+            "proto_binary_fetched_int": "0",
+            "proto_binary_fetched_bigint": "0",
+            "proto_binary_fetched_decimal": "0",
+            "proto_binary_fetched_float": "0",
+            "proto_binary_fetched_double": "0",
+            "proto_binary_fetched_date": "0",
+            "proto_binary_fetched_year": "0",
+            "proto_binary_fetched_time": "0",
+            "proto_binary_fetched_datetime": "0",
+            "proto_binary_fetched_timestamp": "0",
+            "proto_binary_fetched_string": "0",
+            "proto_binary_fetched_json": "0",
+            "proto_binary_fetched_blob": "0",
+            "proto_binary_fetched_enum": "0",
+            "proto_binary_fetched_set": "0",
+            "proto_binary_fetched_geometry": "0",
+            "proto_binary_fetched_other": "0",
+            "init_command_executed_count": "0",
+            "init_command_failed_count": "0",
+            "com_quit": "9",
+            "com_init_db": "0",
+            "com_query": "481",
+            "com_field_list": "0",
+            "com_create_db": "0",
+            "com_drop_db": "0",
+            "com_refresh": "0",
+            "com_shutdown": "0",
+            "com_statistics": "0",
+            "com_process_info": "0",
+            "com_connect": "0",
+            "com_process_kill": "0",
+            "com_debug": "0",
+            "com_ping": "0",
+            "com_time": "0",
+            "com_delayed_insert": "0",
+            "com_change_user": "0",
+            "com_binlog_dump": "0",
+            "com_table_dump": "0",
+            "com_connect_out": "0",
+            "com_register_slave": "0",
+            "com_stmt_prepare": "0",
+            "com_stmt_execute": "0",
+            "com_stmt_send_long_data": "0",
+            "com_stmt_close": "0",
+            "com_stmt_reset": "0",
+            "com_stmt_set_option": "0",
+            "com_stmt_fetch": "0",
+            "com_deamon": "0",
+            "bytes_received_real_data_normal": "68147",
+            "bytes_received_real_data_ps": "0"
+        },
+        "openssl": {
+            "OpenSSL support": "enabled",
+            "OpenSSL Library Version": "OpenSSL 1.0.2g 1 Mar 2016",
+            "OpenSSL Header Version": "OpenSSL 1.0.2g 1 Mar 2016",
+            "Openssl default config": "\/usr\/lib\/ssl\/openssl.cnf",
+            "openssl.cafile": "no value",
+            "openssl.capath": "no value"
+        },
+        "pcre": {
+            "PCRE (Perl Compatible Regular Expressions) Support": "enabled",
+            "PCRE Library Version": "8.38 2015-11-23",
+            "PCRE JIT Support": "enabled",
+            "pcre.backtrack_limit": "1000000",
+            "pcre.jit": "1",
+            "pcre.recursion_limit": "100000"
+        },
+        "PDO": {
+            "PDO drivers": "mysql"
+        },
+        "pdo_mysql": {
+            "Client API version": "mysqlnd 5.0.12-dev - 20150407 - $Id: b5c5906d452ec590732a93b051f3827e02749b83 $",
+            "pdo_mysql.default_socket": "\/var\/run\/mysqld\/mysqld.sock"
+        },
+        "Phar": {
+            "Phar EXT version": "2.0.2",
+            "Phar API version": "1.1.1",
+            "SVN revision": "$Id: 9d91fd26ae99260111b934cc25174387d4bd7059 $",
+            "Phar-based phar archives": "enabled",
+            "Tar-based phar archives": "enabled",
+            "ZIP-based phar archives": "enabled",
+            "gzip compression": "enabled",
+            "bzip2 compression": "disabled (install pecl\/bz2)",
+            "Native OpenSSL support": "enabled",
+            "Phar based on pear\/PHP_Archive, original concept by Davey Shafik.Phar fully realized by Gregory Beaver and Marcus Boerger.Portions of tar implementation Copyright (c) 2003-2009 Tim Kientzle.": null,
+            "phar.cache_list": "no value",
+            "phar.readonly": "On",
+            "phar.require_hash": "On"
+        },
+        "posix": {
+            "Revision": "$Id: b691ca925e7a085e6929579c4eba8fed0732e0ef $"
+        },
+        "readline": {
+            "Readline library": "EditLine wrapper",
+            "cli.pager": "no value",
+            "cli.prompt": "\\b \\&gt; "
+        },
+        "redis": {
+            "Redis Version": "2.2.8-devphp7"
+        },
+        "Reflection": {
+            "Version": "$Id: 5b162f759ed700573e0cb3095c8f89a70970748a $"
+        },
+        "session": {
+            "Session Support": "enabled",
+            "Registered save handlers": "files user redis rediscluster redis rediscluster",
+            "Registered serializer handlers": "php_serialize php php_binary wddx",
+            "session.auto_start": "Off",
+            "session.cache_expire": "180",
+            "session.cache_limiter": "nocache",
+            "session.cookie_domain": "no value",
+            "session.cookie_httponly": [
+                "On",
+                "Off"
+            ],
+            "session.cookie_lifetime": "0",
+            "session.cookie_path": "\/",
+            "session.cookie_secure": [
+                "On",
+                "Off"
+            ],
+            "session.entropy_file": "\/dev\/urandom",
+            "session.entropy_length": "32",
+            "session.gc_divisor": "1000",
+            "session.gc_maxlifetime": "1440",
+            "session.gc_probability": "0",
+            "session.hash_bits_per_character": "5",
+            "session.hash_function": "0",
+            "session.lazy_write": "On",
+            "session.name": [
+                "oc0jb2tqzinl",
+                "PHPSESSID"
+            ],
+            "session.referer_check": "no value",
+            "session.save_handler": "files",
+            "session.save_path": "\/var\/lib\/php\/sessions",
+            "session.serialize_handler": "php",
+            "session.upload_progress.cleanup": "On",
+            "session.upload_progress.enabled": "On",
+            "session.upload_progress.freq": "1%",
+            "session.upload_progress.min_freq": "1",
+            "session.upload_progress.name": "PHP_SESSION_UPLOAD_PROGRESS",
+            "session.upload_progress.prefix": "upload_progress_",
+            "session.use_cookies": "On",
+            "session.use_only_cookies": "On",
+            "session.use_strict_mode": "Off",
+            "session.use_trans_sid": "0"
+        },
+        "shmop": {
+            "shmop support": "enabled"
+        },
+        "SimpleXML": {
+            "Revision": "$Id: b8b5c37931a53e50a937c0aef2a26d351e173215 $",
+            "Schema support": "enabled"
+        },
+        "sockets": {
+            "Sockets Support": "enabled"
+        },
+        "SPL": {
+            "Interfaces": "Countable, OuterIterator, RecursiveIterator, SeekableIterator, SplObserver, SplSubject",
+            "Classes": "AppendIterator, ArrayIterator, ArrayObject, BadFunctionCallException, BadMethodCallException, CachingIterator, CallbackFilterIterator, DirectoryIterator, DomainException, EmptyIterator, FilesystemIterator, FilterIterator, GlobIterator, InfiniteIterator, InvalidArgumentException, IteratorIterator, LengthException, LimitIterator, LogicException, MultipleIterator, NoRewindIterator, OutOfBoundsException, OutOfRangeException, OverflowException, ParentIterator, RangeException, RecursiveArrayIterator, RecursiveCachingIterator, RecursiveCallbackFilterIterator, RecursiveDirectoryIterator, RecursiveFilterIterator, RecursiveIteratorIterator, RecursiveRegexIterator, RecursiveTreeIterator, RegexIterator, RuntimeException, SplDoublyLinkedList, SplFileInfo, SplFileObject, SplFixedArray, SplHeap, SplMinHeap, SplMaxHeap, SplObjectStorage, SplPriorityQueue, SplQueue, SplStack, SplTempFileObject, UnderflowException, UnexpectedValueException"
+        },
+        "standard": {
+            "Dynamic Library Support": "enabled",
+            "Path to sendmail": "\/usr\/sbin\/sendmail -t -i",
+            "assert.active": "1",
+            "assert.bail": "0",
+            "assert.callback": "no value",
+            "assert.exception": "0",
+            "assert.quiet_eval": "0",
+            "assert.warning": "1",
+            "auto_detect_line_endings": "0",
+            "default_socket_timeout": "60",
+            "from": "no value",
+            "url_rewriter.tags": "a=href,area=href,frame=src,input=src,form=fakeentry",
+            "user_agent": "no value"
+        },
+        "sysvmsg": {
+            "sysvmsg support": "enabled",
+            "Revision": "$Id: dfb999763f95bfe9609fae60b4e07a492888ec7c $"
+        },
+        "sysvsem": {
+            "Version": "7.0.22-0ubuntu0.16.04.1"
+        },
+        "sysvshm": {
+            "Version": "7.0.22-0ubuntu0.16.04.1"
+        },
+        "tokenizer": {
+            "Tokenizer Support": "enabled"
+        },
+        "wddx": {
+            "WDDX Session Serializer": "enabled"
+        },
+        "xml": {
+            "XML Support": "active",
+            "XML Namespace Support": "active",
+            "libxml2 Version": "2.9.3"
+        },
+        "xmlreader": {
+            "XMLReader": "enabled"
+        },
+        "xmlwriter": {
+            "XMLWriter": "enabled"
+        },
+        "xsl": {
+            "XSL": "enabled",
+            "libxslt Version": "1.1.28",
+            "libxslt compiled against libxml Version": "2.9.3",
+            "EXSLT": "enabled",
+            "libexslt Version": "1.1.28"
+        },
+        "Zend OPcache": {
+            "Opcode Caching": "Up and Running",
+            "Optimization": "Enabled",
+            "SHM Cache": "Enabled",
+            "File Cache": "Disabled",
+            "Startup": "OK",
+            "Shared memory model": "mmap",
+            "Cache hits": "127786",
+            "Cache misses": "935",
+            "Used memory": "23420568",
+            "Free memory": "43688296",
+            "Wasted memory": "0",
+            "Interned Strings Used memory": "2210768",
+            "Interned Strings Free memory": "1983536",
+            "Cached scripts": "935",
+            "Cached keys": "1405",
+            "Max keys": "3907",
+            "OOM restarts": "0",
+            "Hash keys restarts": "0",
+            "Manual restarts": "0",
+            "opcache.blacklist_filename": "no value",
+            "opcache.consistency_checks": "0",
+            "opcache.dups_fix": "Off",
+            "opcache.enable": "On",
+            "opcache.enable_cli": "Off",
+            "opcache.enable_file_override": "Off",
+            "opcache.error_log": "no value",
+            "opcache.fast_shutdown": "0",
+            "opcache.file_cache": "no value",
+            "opcache.file_cache_consistency_checks": "1",
+            "opcache.file_cache_only": "0",
+            "opcache.file_update_protection": "2",
+            "opcache.force_restart_timeout": "180",
+            "opcache.huge_code_pages": "Off",
+            "opcache.inherited_hack": "On",
+            "opcache.interned_strings_buffer": "4",
+            "opcache.lockfile_path": "\/tmp",
+            "opcache.log_verbosity_level": "1",
+            "opcache.max_accelerated_files": "2000",
+            "opcache.max_file_size": "0",
+            "opcache.max_wasted_percentage": "5",
+            "opcache.memory_consumption": "64",
+            "opcache.optimization_level": "0x7FFFBFFF",
+            "opcache.preferred_memory_model": "no value",
+            "opcache.protect_memory": "0",
+            "opcache.restrict_api": "no value",
+            "opcache.revalidate_freq": "2",
+            "opcache.revalidate_path": "Off",
+            "opcache.save_comments": "1",
+            "opcache.use_cwd": "On",
+            "opcache.validate_permission": "Off",
+            "opcache.validate_root": "Off",
+            "opcache.validate_timestamps": "On"
+        },
+        "zip": {
+            "Zip": "enabled",
+            "Zip version": "1.13.5",
+            "Libzip version": "1.0.1"
+        },
+        "zlib": {
+            "Stream Wrapper": "compress.zlib:\/\/",
+            "Stream Filter": "zlib.inflate, zlib.deflate",
+            "Compiled Version": "1.2.8",
+            "Linked Version": "1.2.8",
+            "zlib.output_compression": "Off",
+            "zlib.output_compression_level": "-1",
+            "zlib.output_handler": "no value"
+        },
+        "Environment": {
+            "APACHE_RUN_DIR": "\/var\/run\/apache2",
+            "APACHE_PID_FILE": "\/var\/run\/apache2\/apache2.pid",
+            "APACHE_LOCK_DIR": "\/var\/lock\/apache2",
+            "LANG": "C",
+            "APACHE_RUN_USER": "www-data",
+            "APACHE_RUN_GROUP": "www-data",
+            "APACHE_LOG_DIR": "\/var\/log\/apache2",
+            "PWD": "\/"
+        }
+    }
+}
